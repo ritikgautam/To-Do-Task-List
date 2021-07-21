@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Tasks</title>
+
+	<!--ExternalLinks-->
+	<link rel="icon" type="logo" href="Tasks.jpg" type="image/jpg">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+	<!--Fonts-->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+	<!--Tasks-->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster">
+	<!--Thank You-->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans">
+	<!--Body-->
+
+
+	<link rel="icon" type="logo" href="Tasks.jpg" type="image/jpg">
+
+
+	<!---Styling--->
+	<style type="text/css">
+		body {
+			padding: 0;
+			margin: 0;
+			font-family: Verdana;
+			background-image: linear-gradient(180deg, #4e2aa3, #2c2061)
+		}
+
+		#home {
+			position: relative;
+			margin-top: 60px;
+		}
+
+		#section_2 {
+			background: none;
+			position: relative;
+			margin: auto;
+		}
+
+		#section_3 {
+			margin-top: 180px;
+			background: none;
+			height: 350px;
+		}
+
+		dt,
+		dd {
+			overflow-wrap: break-word;
+			font-size: 18px;
+			letter-spacing: 1.0px;
+		}
+
+		dt {
+			padding-left: 12px;
+			padding-top: 6px;
+			text-transform: uppercase;
+		}
+
+		dd {
+			padding-left: 20px;
+			padding-top: 3px;
+			padding-bottom: 10px;
+			text-transform: capitalize;
+		}
+
+
+		/*===Date===*/
+		#date {
+			font-size: 23px;
+			color: rgb(148, 148, 148);
+		}
+
+		/*===Inputs===*/
+		input,
+		textarea {
+			padding: 9px;
+			margin: 0.7%;
+			resize: vertical;
+			background: rgba(34, 26, 26, 0.2);
+			border: 1px solid lightgray;
+			border-radius: 5px;
+			transition: all 0.10s ease-in-out;
+			color: rgb(255, 255, 255);
+		}
+
+		input {
+			font-weight: 500;
+		}
+
+		textarea {
+			font-weight: 400;
+		}
+
+		::placeholder {
+			font-weight: 300;
+			letter-spacing: 3px;
+		}
+
+		#edit {
+			display: none;
+		}
+
+		/*===Focusing Inputs===*/
+
+		input:focus,
+		textarea:focus {
+			box-shadow: 0 0 12px #ffffff;
+			border: 1px solid #ffffff;
+
+		}
+
+		/*===Buttons===*/
+
+		.btn {
+			background-color: rgb(181, 197, 207);
+			margin: 2.4%;
+			color: rgb(43, 42, 42);
+			font-size: 17px;
+			font-weight: bolder;
+			border-radius: 7px;
+			cursor: pointer;
+		}
+
+		button {
+			background-color: rgb(181, 197, 207);
+			margin: 1%;
+			color: rgb(70, 67, 67);
+			font-size: 17px;
+			font-weight: bolder;
+			border-radius: 7px;
+			cursor: pointer;
+		}
+
+
+		button:hover {
+			background: linear-gradient(rgb(211, 222, 230), rgb(162, 166, 168));
+		}
+
+		button:active {
+			transform: translateY(1px);
+		}
+
+		#prioritybtn {
+			background: rgba(34, 26, 26, 0.2);
+			color: rgb(158, 158, 158);
+			font-size: 17px;
+			font-weight: 400;
+			border-radius: 4px;
+			border: 1px solid lightgray;
+			cursor: pointer;
+		}
+
+		#prioritybtn:hover {
+			color: rgb(0, 0, 0);
+			background: linear-gradient(rgb(211, 222, 230), rgb(162, 166, 168));
+		}
+
+		/*===DropDown===*/
+
+		#priorities {
+			background: none;
+			padding: 8px;
+			color: rgb(201, 185, 185);
+			font-weight: 400;
+			font-size: 17px;
+			border-radius: 4px;
+			display: none;
+		}
+
+		#priorities>option {
+			font-size: 17px;
+			background: rgb(36, 35, 35);
+		}
+
+		#priorities #low {
+			color: #13dd67;
+		}
+
+		#priorities #medium {
+			color: #e98d31;
+		}
+
+		#priorities #high {
+			color: #e23737;
+		}
+
+		#add {
+			border: 1px solid rgb(59, 187, 0);
+		}
+
+		#add:hover {
+			background: linear-gradient(rgb(211, 222, 230), rgb(162, 166, 168));
+			color: rgb(37, 170, 59);
+			background-color: rgb(59, 187, 0);
+		}
+
+
+		#edit:hover {
+			background: linear-gradient(rgb(211, 222, 230), rgb(162, 166, 168));
+			color: rgb(37, 170, 59);
+			background-color: rgb(59, 187, 0);
+		}
+
+
+		.R:hover {
+			background: linear-gradient(rgb(211, 222, 230), rgb(162, 166, 168));
+			color: rgb(214, 212, 58);
+			background-color: rgb(202, 207, 150);
+		}
+
+		.R {
+			border: 1px solid rgb(231, 228, 4);
+		}
+
+		/* Second Section Elememts*/
+		.main {
+			display: flex;
+			border: 1px solid lightgray;
+			border-radius: 5px;
+			margin: -9px;
+		}
+
+		#content {
+			z-index: 0;
+			width: 90%;
+			position: justify;
+		}
+
+		.y {
+			margin-left: 14px;
+			right: 0px;
+			width: 8%;
+		}
+
+		/*===Section 2 Delete edit and check button==*/
+		#delete-b {
+			background: none;
+			border: 2px solid rgb(0, 0, 0);
+			font-size: 19px;
+			color: rgb(99, 94, 94);
+			margin-top: 9px;
+			border: none;
+		}
+
+		#delete-b :hover {
+			color: black;
+		}
+
+		#delete-b :active:hover {
+			transform: translateY(2px);
+		}
+
+		#edit-b {
+			background: none;
+			border: none;
+		}
+
+		#edit-b:active:hover {
+			transform: translateY(1px);
+		}
+
+		a {
+			text-decoration: none;
+			color: rgb(99, 94, 94);
+			font-size: 20px;
+		}
+
+		a:hover {
+			color: black;
+		}
+
+		#check-b {
+			background: none;
+			border: none;
+			color: rgb(99, 94, 94);
+			font-size: 20px;
+		}
+
+		#check-b:hover {
+			color: black;
+		}
+
+		#one {
+			color: white;
+		}
+
+		#check-b:active:hover {
+			transform: translateX(4px);
+		}
+
+		/*===Section 2 ===*/
+
+		#tableBody {
+			color: rgb(31, 29, 29);
+			font-size: 25px;
+			margin-top: 30px;
+			font-family: 'Nunito Sans', sans-serif;
+		}
+
+		#l {
+			background-color: #13dd67;
+		}
+
+		#l:hover {
+			color: #13dd67;
+		}
+
+		#m {
+			background-color: #e98d31;
+		}
+
+		#m:hover {
+			color: #e98d31;
+		}
+
+		#h {
+			background-color: #e23737;
+		}
+
+		#h:hover {
+			color: #e23737;
+		}
+
+
+
+		/*===Section 3 buttons===*/
+
+		#low {
+			background-color: #13dd67;
+		}
+
+		#medium {
+			background-color: #e98d31;
+		}
+
+		#high {
+			background-color: #e23737;
+		}
+
+		#alltasks {
+			background: linear-gradient(60deg, #13dd67, #e98d31, #e23737);
+		}
+
+		#alltasks:hover {
+			background: linear-gradient(rgb(211, 222, 230), rgb(162, 166, 168));
+			color: rgb(46, 22, 77);
+		}
+
+
+
+		/*===Task count==*/
+
+		#count {
+			color: rgb(255, 255, 255);
+			-webkit-text-stroke: 1.2px rgb(163, 126, 157);
+		}
+
+		#count:hover {
+			font-weight: bolder;
+			color: rgb(0, 0, 0);
+			-webkit-text-stroke: 1.2px rgb(163, 126, 157);
+		}
+
+		/*===Footer===*/
+		footer {
+			left: 0;
+			right: 0;
+			bottom: 0;
+			width: 100%;
+			margin-top: 20px;
+			background-color: rgba(204, 216, 218, 0.493);
+			color: rgb(0, 0, 0);
+			font-family: 'Lobster', cursive;
+			text-align: center;
+		}
+
+
+		/* theme */
+		.dropdown {
+			display: table-column;
+		}
+
+		#theme {
+			display: none;
+			width: 120px;
+			right: 14px;
+			list-style-type: none;
+			position: absolute;
+		}
+
+		#theme li {
+			width: 100px;
+			display: block;
+			cursor: pointer;
+		}
+
+		#theme #light {
+			color: black;
+			background-color: #D4E4F7;
+		}
+
+		#theme #dark {
+			color: white;
+			background-color: black;
+		}
+
+		#theme #default {
+			color: white;
+			background-color: #391858;
+		}
+
+		#theme #light:hover {
+			color: rgb(73, 171, 216);
+			background-color: rgb(253, 253, 253);
+		}
+
+		#theme #dark:hover {
+			color: rgb(0, 204, 255);
+			background-color: rgb(36, 35, 35);
+		}
+
+		#theme #default:hover {
+			color: rgba(0, 255, 255, 0.61);
+			background-color: #6735da;
+		}
+
+
+
+		/*===Navigation Bar===*/
+		nav {
+			position: fixed;
+			z-index: 10;
+			left: 0;
+			right: 0;
+			top: 0;
+			font-family: 'Montserrat', sans-serif;
+			padding: 0 5%;
+			height: 70px;
+			background-color: #140920;
+		}
+
+		img {
+			position: relative;
+			left: 0px;
+			bottom: 2px;
+		}
+
+
+		nav .logo {
+			float: left;
+			height: 100%;
+			display: flex;
+			align-items: center;
+			font-size: 23px;
+			color: rgb(0, 0, 0);
+			-webkit-text-stroke: 0.9px rgb(18, 196, 250);
+			font-family: 'Sofia', cursive;
+			margin-left: -15px;
+		}
+
+		nav .logo:hover {
+			color: rgb(255, 255, 255);
+			text-shadow: 2px 2px 3px rgb(43, 183, 238);
+		}
+
+		nav a:hover {
+			text-shadow: 2px 2px 3px rgb(43, 183, 238);
+		}
+
+		nav .links {
+			float: right;
+			padding: 0;
+			margin: 0;
+			width: auto;
+			height: 100%;
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+		}
+
+		nav .links li {
+			list-style: none;
+		}
+
+		nav .links a {
+			display: block;
+			padding: 1em;
+			font-size: 16px;
+			font-weight: bold;
+			color: #fff;
+			text-decoration: none;
+		}
+
+		#nav-toggle {
+			position: absolute;
+			top: -100px;
+		}
+
+		nav .icon-burger {
+			display: none;
+			position: absolute;
+			right: 5%;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+
+		nav .icon-burger .line {
+			width: 30px;
+			height: 3px;
+			background-color: #fff;
+			margin: 5px;
+			border-radius: 3px;
+			transition: all .1s ease-in-out;
+		}
+
+
+
+		/*For Smaller Devices*/
+
+		@media screen and (max-width:814px) {
+			nav .logo {
+				float: none;
+				width: auto;
+				color: rgb(0, 0, 0);
+				-webkit-text-stroke: 0.9px rgb(18, 196, 250);
+			}
+
+			img {
+				width: 60;
+				height: 62px;
+			}
+
+
+			nav {
+				height: 40px;
+			}
+
+			nav .logo:hover {
+				color: rgb(255, 255, 255);
+				text-shadow: 2px 2px 3px rgb(43, 183, 238);
+				;
+			}
+
+			nav .links {
+				float: none;
+				position: fixed;
+				z-index: 9;
+				left: 0;
+				right: 0;
+				top: 100px;
+				bottom: 100%;
+				width: auto;
+				height: auto;
+				flex-direction: column;
+				justify-content: space-evenly;
+				background-color: rgba(0, 0, 0, 0.8);
+				overflow: hidden;
+				box-sizing: border-box;
+				transition: all .4s ease-in-out;
+
+			}
+
+			nav a:hover {
+				text-shadow: 2px 2px 3px rgb(43, 183, 238);
+			}
+
+			nav .links a {
+				font-size: 20px;
+			}
+
+			nav :checked~.links {
+				bottom: 0%;
+				top: 40px;
+			}
+
+			nav .icon-burger {
+				display: block;
+			}
+
+			nav :checked~.icon-burger .line:nth-child(1) {
+				transform: translateY(10px) rotate(225deg);
+
+			}
+
+			nav :checked~.icon-burger .line:nth-child(3) {
+				transform: translateY(-10px) rotate(-225deg);
+			}
+
+			nav :checked~.icon-burger .line:nth-child(2) {
+				opacity: 0;
+			}
+
+			#theme {
+				display: none;
+				left: 40px;
+				top: 48px;
+				list-style-type: none;
+				position: absolute;
+			}
+
+			#theme li {
+				width: 90px;
+				display: block;
+				cursor: pointer;
+			}
+
+			#home {
+				position: relative;
+				margin-top: 9%;
+				font-size: 0.8em;
+			}
+
+			#date {
+				font-size: 0.8rem;
+			}
+
+			dt {
+
+				font-size: 18px;
+				padding-left: 11px;
+				padding-top: 7px;
+			}
+
+			dd {
+				font-size: 19px;
+				padding-top: 2px;
+				padding-left: 18px;
+				margin-bottom: -10px;
+			}
+
+			.main {
+				display: block;
+			}
+
+			#content {
+				z-index: 0;
+				width: 97%;
+				text-align: justify;
+			}
+
+
+			.y {
+				right: 0px;
+				margin-left: 20px;
+				display: inline;
+			}
+
+
+			/*===Footer===*/
+			footer {
+				left: 0;
+				right: 0;
+				bottom: 0;
+				width: 100%;
+				margin-top: 20px;
+				background-color: rgba(204, 216, 218, 0.493);
+				color: rgb(0, 0, 0);
+				font-family: 'Lobster', cursive;
+				text-align: center;
+			}
+
+		}
+	</style>
+</head>
+
+
+
+<!-----------------------------------------HTML--------------------------------------->
+
+<body id="body">
+	<div id="app" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+		<!---Navigation Bar -->
+		<nav id="nbar">
+			<input id="nav-toggle" type="checkbox">
+
+			<div class="logo">
+				<img src="Tasks.png" alt="Logo" width="68" height="70">
+				<strong>TASKS</strong>
+			</div>
+
+			<ul class="links">
+				<li class="active z"><a href="#home" class="nav__link"><i class="fas fa-home"></i></a></li>
+				<li class="z"><a href="#reset" onclick="update()">All Tasks</a></li>
+				<li class="z"><a href="#display_btns" class="nav__link">Filter</a></li>
+				<li class="z"><a href="#reset" onclick="clearStorage()">Delete All Tasks</a></li>
+				<div class="dropdown">
+					<li id="themebtn"><a href="#">Themes</a></li>
+					<ul id="theme" align="center">
+						<li id="light" value="light">Light</li>
+						<li id="dark" value="dark">Dark</li>
+						<li id="default" value="default">Default</li>
+					</ul>
+				</div>
+				<li class="z"><a href="About.html" target="_self">About</a></li>
+			</ul>
+			<label for="nav-toggle" class="icon-burger">
+				<div class="line"></div>
+				<div class="line"></div>
+				<div class="line"></div>
+			</label>
+		</nav>
+		</ul>
+
+
+		<section id="home">
+			<div class="nav-bar " align="center">
+				<br>
+				<p id="date" title="Today's status"></p>
+
+				<input class="col-xs-12 col-sm-8 col-md-8 col-lg-6" type="text" name="task"
+					placeholder="Add Your Task Title Here..." id="title" value="" autocomplete="off">
+				<input type="hidden" id="saveindex">
+				<textarea class="col-xs-12 col-sm-8 col-md-8 col-lg-6" rows="5"
+					placeholder="Add Your Task Description Here..." id="description"></textarea>
+				<br>
+				<br>
+
+				<div align="center">
+					<button id="prioritybtn">Select The Priority</button>
+					<select id="priorities">
+						<option id="o" value="" enable>select</option>
+						<option id="low" class="priority" value="low">Low</option>
+						<option id="medium" class="priority" value="medium">Medium</option>
+						<option id="high" class="priority" value="high">High</option>
+					</select>
+				</div>
+				<div id="changebuttons">
+					<br><br>
+					<button id="add" class="col-xs-2 col-sm-3 col-md-2 col-lg-2 btn">Save</button>
+					<button id="edit" class="col-xs-2 col-sm-3 col-md-2 col-lg-2 btn">Edit</button>
+					<button id="reset" onclick="reset()"
+						class="col-xs-2 col-sm-3 col-md-2 col-lg-2 btn R">Reset</button>
+				</div>
+		</section>
+
+
+		<!---Tasks Display--->
+		<section id="section_2" class="col-xs-12 col-sm-12 col-md-11 col-lg-8" style="margin-top:50px;">
+			<h2 id="count" align="center" style="text-transform: capitalize;">Your Tasks</h2>
+			<dl id="tableBody">
+
+			</dl>
+		</section>
+
+
+		<!--Third Section-->
+
+		<div id="section_3" align="center">
+			<section class="display_btn" id="display_btns">
+				<a href="#reset"><button id="l" onclick="display('low')"
+						class="col-xs-2 col-sm-4 col-md-2 col-lg-2">Low</button></a>
+
+				<a href="#reset"><button id="m" onclick="display('medium')"
+						class="col-xs-2 col-sm-4 col-md-2 col-lg-2">Medium</button></a>
+
+				<a href="#reset"><button id="h" onclick="display('high')"
+						class="col-xs-2 col-sm-4 col-md-2 col-lg-2">High</button></a>
+
+				<a href="#reset"><button onclick="update()" id="alltasks"
+						class="col-xs-2 col-sm-4 col-md-2 col-lg-2">All Tasks</button></a>
+
+
+			</section>
+		</div>
+
+
+
+		<!-- Footer section-->
+		<footer align="center">
+			<h4 class="'Lobster', cursive">Thank You For Using Our App !</h4>
+		</footer>
+
+
+	</div>
+</body>
+
+
+
+<!-----------------------------------------Javascript--------------------------------------->
+
+<script type="text/javascript">
+	// refreshing page
+	$(window).on('beforeunload', function () {
+		$(window).scrollTop(0);
+	});
+
+
+	//Displaying Date
+	var date = new Date();
+	document.getElementById('date').innerHTML = date;
+
+
+
+	//priority selection toggle function
+	$(document).ready(function () {
+		$("#prioritybtn").click(function () {
+			this.classList.toggle("active");
+			var content = this.nextElementSibling;
+			if (content.style.display === "inline") {
+				content.style.display = "none";
+			} else {
+				content.style.display = "inline";
+
+			}
+			document.getElementById('null').style.display = "none";
+		});
+	});
+
+	//theme change
+	$(document).ready(function () {
+		$("#themebtn").click(function () {
+			this.classList.toggle("active");
+			var content = document.getElementById("theme");
+			if (content.style.display === "inline") {
+				content.style.display = "none";
+
+			} else {
+
+				content.style.display = "inline";
+
+			}
+			document.getElementById('null').style.display = "none";
+		});
+	});
+	theme = document.getElementById("theme");
+	theme.onclick = function (event) {
+		//dark theme
+		var target = event.target;
+		if (target.innerHTML == "Dark") {
+			document.getElementById('body').style.background = "black";
+			document.getElementById('nbar').style.backgroundColor = "#1c1b1b";
+		}
+		//light theme
+		if (target.innerHTML == "Light") {
+			document.getElementById('body').style.background = "#D4E4F7	";
+			document.getElementById('nbar').style.backgroundColor = "#5d6363";
+		}
+		//default theme
+		if (target.innerHTML == "Default") {
+			document.getElementById('body').style.setProperty('background-image',
+				'linear-gradient(180deg, #4e2aa3,  #2c2061)');
+			document.getElementById('nbar').style.setProperty('background-Color', '#140920');
+
+		}
+		theme.style.display = "none";
+
+	};
+
+	var navbtns = document.getElementsByClassName("z");
+	for (var i = 0; i < navbtns.length; i++) {
+		navbtns[i].onclick = function () {
+			theme.style.display = "none";
+		};
+	}
+
+
+
+	/*===Adding the list===*/
+	let add = document.getElementById('add');
+	add.addEventListener("click", getAndUpdate);
+	update();
+
+	let t = document.getElementById('title');
+	let d = document.getElementById('description');
+	let priority = document.getElementById("priorities");
+
+	t.addEventListener('focus', function () {
+		t.placeholder = "";
+	});
+	t.addEventListener('blur', function () {
+		t.placeholder = "Add Your Task Title Here...";
+	});
+	d.addEventListener('focus', function () {
+		d.placeholder = "";
+	})
+	d.addEventListener('blur', function () {
+		d.placeholder = "Add Your Task Description Here...";
+	})
+
+	function getAndUpdate() {
+		titl = t.value;
+		desc = d.value;
+		prioritySelected = priority.options[priority.selectedIndex].value;
+		if (titl != "" && desc != "" && prioritySelected != "") {
+			if (localStorage.getItem('itemsJson') == null) {
+				itemJsonArray = [];
+				itemJsonArray.push([titl, desc, prioritySelected, "zero"]);
+				localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray));
+			} else {
+				itemJsonStr = localStorage.getItem('itemsJson');
+				itemJsonArray = JSON.parse(itemJsonStr);
+				itemJsonArray.push([titl, desc, prioritySelected, "zero"]);
+				localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray));
+			}
+			reset();
+			update();
+		} else {
+			alert("Fill all details..!");
+		}
+
+	}
+
+	function update() {
+		//populate the table by functions
+		if (localStorage.getItem('itemsJson') == null) {
+			itemJsonArray = [];
+			localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray));
+		} else {
+			itemJsonStr = localStorage.getItem('itemsJson');
+			itemJsonArray = JSON.parse(itemJsonStr);
+		}
+		tableBody = document.getElementById('tableBody');
+		let str = "";
+		let count = 0;
+		let length = itemJsonArray.length - 1
+		itemJsonArray.slice().reverse().forEach((element, index) => {
+			str += `
+				<div class="main" id = "${element[2]}">
+					<div id = "content">
+						<dt>${element[0]}</dt>
+						<dd>${element[1]}</dd>
+					</div>
+					<br>
+					<div class="y">
+						<button type="button" class="task_button" id="delete-b" onclick="deleted(${length - index},0)"><i class="fas fa-trash"></i></button>
+						<button type="button" class="task_button"  id="edit-b" onclick="edited(${length - index})"><a href="#home"><i class="fas fa-edit"></i></a></button>
+						<button type="button" class="task_button" id="check-b" onclick="checked(${length - index},0)"><a href="#reset"><i id ="${element[3]}" class="fas fa-check-square"></i></a></button>
+					</div>
+				</div>
+				<br>
+				 `
+			count += 1;
+		});
+		tableBody.innerHTML = str;
+
+		x = document.getElementById("count");
+		x.innerHTML = "your tasks - " + "  " + count;
+	}
+
+	function deleted(itemindex, flag) {
+		itemJsonStr = localStorage.getItem('itemsJson');
+		itemJsonArray = JSON.parse(itemJsonStr);
+		priority = itemJsonArray[itemindex][2];
+		itemJsonArray.splice(itemindex, 1);
+		localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray));
+		if (flag) display(priority);
+		else update();
+	}
+
+	//edit
+	function edited(itemindex) {
+		itemJsonStr = localStorage.getItem('itemsJson');
+		itemJsonArray = JSON.parse(itemJsonStr);
+		t.value = itemJsonArray[itemindex][0];
+		d.value = itemJsonArray[itemindex][1];
+		priority.value = itemJsonArray[itemindex][2];
+		priority.style.display = "inline";
+		let saveindex = document.getElementById("saveindex");
+		saveindex.value = itemindex;
+		add.style.display = "none";
+		edit.style.display = "inline";
+	}
+
+	let edit_btn = document.getElementById('edit');
+	edit_btn.addEventListener("click", function () {
+		itemJsonStr = localStorage.getItem('itemsJson');
+		itemJsonArray = JSON.parse(itemJsonStr);
+		let saveindex = document.getElementById("saveindex").value;
+		p = priority.options[priority.selectedIndex].value;
+		if (t.value != "" && d.value != "" && p != "") {
+			itemJsonArray[saveindex][0] = t.value;
+			itemJsonArray[saveindex][1] = d.value;
+			itemJsonArray[saveindex][2] = p;
+			itemJsonArray[saveindex][3] = "zero";
+			reset();
+		} else {
+			alert("fill all items...");
+		}
+		localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray));
+		update();
+
+
+	})
+
+	//checkbox
+
+	function checked(itemIndex, flag) {
+		window.location.reload();
+		itemJsonStr = localStorage.getItem('itemsJson');
+		itemJsonArray = JSON.parse(itemJsonStr);
+		if (itemJsonArray[itemIndex][3] == "zero") {
+			itemJsonArray[itemIndex][3] = "one";
+		} else {
+			itemJsonArray[itemIndex][3] = "zero";
+		}
+		priority = itemJsonArray[itemIndex][2];
+		localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray));
+		if (flag) display(priority);
+		else update();
+		reset();
+	}
+
+	function clearStorage() {
+		if (confirm("Do you really want to Delete All Tasks ..?")) {
+			localStorage.clear();
+			reset();
+			update();
+		}
+	}
+
+
+	/*===Displaying task according to Priorities ===*/
+
+	function display(priority) {
+		if (localStorage.getItem('itemsJson') == null) {
+			itemJsonArray = [];
+			localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray));
+		} else {
+			itemJsonStr = localStorage.getItem('itemsJson');
+			itemJsonArray = JSON.parse(itemJsonStr);
+		}
+
+		tableBody = document.getElementById('tableBody');
+		let str = "";
+		let count = 0;
+		let length = itemJsonArray.length - 1
+		itemJsonArray.slice().reverse().forEach((element, index) => {
+			if (priority == element[2]) {
+				str += `
+				<div class="main" id = "${element[2]}">
+					<div id = "content">
+						<dt>${element[0]}</dt>
+						<dd>${element[1]}</dd>
+					</div>
+					<br>
+					<div class="y">
+						<button type="button" class="task_button" id="delete-b" onclick="deleted(${length - index},1)"><i class="fas fa-trash"></i></button>
+						<button type="button" class="task_button"  id="edit-b" onclick="edited(${length - index})"><a href="#home"><i class="fas fa-edit"></i></a></button>
+						<button type="button" class="task_button" id="check-b" onclick="checked(${length - index},1)"><a href="#reset"><i id = "${element[3]}"class="fas fa-check-square"></i></a></button>
+					</div>
+				</div>
+				<br>
+					`
+				count = count + 1;
+			}
+		});
+		tableBody.innerHTML = str;
+		//count in second
+		x = document.getElementById("count");
+		x.innerHTML = priority + " tasks" + " " + count;
+	}
+
+
+	/*===Reset the input===*/
+	function reset() {
+		t.value = "";
+		d.value = "";
+		priority.value = "";
+		priority.style.display = "none";
+		add.style.display = "inline";
+		edit_btn.style.display = "none";
+		t.placeholder = "Add Your Task Title Here...";
+		d.placeholder = "Add Your Task Description Here...";
+	}
+</script>
+
+</html>
