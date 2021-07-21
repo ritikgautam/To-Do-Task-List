@@ -7,4 +7,5 @@ I created a Fully Functional and Responsive To-Do Tasks List.
    - User can Edit or Delete thier Task.
    - User can checkmark their task.
    - Users can also change theme of application whatever they like.
+   - We can list down the tasks according to Priority.
    - 
