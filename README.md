@@ -1,6 +1,6 @@
 <h1>To-Do List</h1>
 
-I created a Fully Functional and Responsive To-Do Tasks List.
+<h3>I created a Fully Functional and Responsive To-Do Tasks List.</h3>
    - Languages used : HTML, CSS, Javascript, Bootstrap.
    - User can add task with description and can give priority to task.
    - Tasks get listed in Second Section with their Priority Color.
@@ -11,6 +11,5 @@ I created a Fully Functional and Responsive To-Do Tasks List.
    - This app stores data in LocalStorage, so no need to worry if you lost your connection or close tab. Whenever you open it, it will list down all tasks whatever last               time you updated in it.
    - Successful Project.
 
-Check My Web-App from below Link:
-   
-   https://ritikgautam.github.io/To-Do-Task-List/
+<h3>Check My Web-App from below Link:</h3>
+   - https://ritikgautam.github.io/To-Do-Task-List/
