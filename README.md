@@ -9,3 +9,4 @@ I created a Fully Functional and Responsive To-Do Tasks List.
    - Users can also change theme of application whatever they like.
    - We can filter down the tasks according to Priority.
    - This app stores data in LocalStorage, so no need to worry if you lost your connection or close tab. Whenever you open it, it will list down all tasks whatever last               time you updated in it.
+   - Successful Project.
